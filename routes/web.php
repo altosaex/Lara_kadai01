@@ -1,13 +1,11 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-// 🔽 追加
-use App\Http\Controllers\TweetController;
-// 🔽 追加
-use App\Http\Controllers\TweetLikeController;
-use Illuminate\Support\Facades\Route;
 // 🔽 追加
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TweetController;
+use App\Http\Controllers\TweetLikeController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 	return view('welcome');
