@@ -12,10 +12,23 @@
 					<form method="POST" action="{{ route('tweets.store') }}">
 						@csrf
 						<div class="mb-4">
-							<label for="tweet" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">Tweet</label>
+							<label for="question" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">質問を選択</label>
+							<select name="question_id" id="question" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+								<option value="">質問を選んでください</option>
+								@foreach($questions as $question)
+								<option value="{{ $question->id }}">{{ $question->question }}</option>
+								@endforeach
+							</select>
+							@error('question_id')
+							<span class="text-red-500 text-xs italic">{{ $message }}</span>
+							@enderror
+						</div>
+						<div class="mb-4">
+							<label for="tweet" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">答え</label>
 							<input type="text" name="tweet" id="tweet" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
 							@error('tweet')
 							<span class="text-red-500 text-xs italic">{{ $message }}</span>
+
 							@enderror
 						</div>
 						<button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Tweet</button>
