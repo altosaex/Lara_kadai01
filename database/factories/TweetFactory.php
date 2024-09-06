@@ -14,6 +14,7 @@ class TweetFactory extends Factory
 {
 	// 🔽 追加
 	protected $model = Tweet::class;
+
 	/**
 	 * Define the model's default state.
 	 *
