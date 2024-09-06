@@ -20,6 +20,7 @@ class CommentController extends Controller
 	/**
 	 * Show the form for creating a new resource.
 	 */
+	// 🔽 引数に Tweet を入力する
 	public function create(Tweet $tweet)
 	{
 		return view('tweets.comments.create', compact('tweet'));
@@ -79,6 +80,7 @@ class CommentController extends Controller
 	public function destroy(Tweet $tweet, Comment $comment)
 	{
 		$comment->delete();
+
 		return redirect()->route('tweets.show', $tweet);
 	}
 }
